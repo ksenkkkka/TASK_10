@@ -23,3 +23,4 @@ C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pas
 C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web\obj\Debug\net8.0\Task_10.Web.pdb
 C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web\obj\Debug\net8.0\Task_10.Web.genruntimeconfig.cache
 C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web\obj\Debug\net8.0\ref\Task_10.Web.dll
+C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web\obj\Debug\net8.0\Task_10.Web.sourcelink.json
