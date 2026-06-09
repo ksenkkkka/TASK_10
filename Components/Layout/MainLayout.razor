@@ -1,0 +1,35 @@
+@inherits LayoutComponentBase
+@inject ObservedStudentsState ObservedState
+@implements IDisposable
+
+<div class="shell">
+    <aside class="sidebar">
+        <h2>Student Panel</h2>
+        <nav>
+            <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+            <NavLink href="/students">Students</NavLink>
+            <NavLink href="/students/create">Create student</NavLink>
+            <NavLink href="/observed">Observed (@ObservedState.Count)</NavLink>
+        </nav>
+    </aside>
+    <main>
+        <header>
+            <span>Observed students: <strong>@ObservedState.Count</strong></span>
+        </header>
+        <section class="content">
+            @Body
+        </section>
+    </main>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        ObservedState.Changed += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ObservedState.Changed -= StateHasChanged;
+    }
+}

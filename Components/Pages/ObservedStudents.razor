@@ -1,0 +1,32 @@
+@page "/observed"
+@inject ObservedStudentsState ObservedState
+
+<PageTitle>Observed students</PageTitle>
+
+<h1>Observed students</h1>
+
+@if (ObservedState.Count == 0)
+{
+    <p>No students are observed yet.</p>
+}
+else
+{
+    <DataTable Items="ObservedState.Students.ToList()">
+        <HeaderTemplate>
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </HeaderTemplate>
+        <RowTemplate Context="student">
+            <tr>
+                <td>@student.IndexNumber</td>
+                <td><a href="/students/@student.Id">@student.FirstName @student.LastName</a></td>
+                <td>@student.Email</td>
+                <td><button class="secondary" @onclick="() => ObservedState.Remove(student.Id)">Remove</button></td>
+            </tr>
+        </RowTemplate>
+    </DataTable>
+}

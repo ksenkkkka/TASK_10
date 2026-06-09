@@ -1,0 +1,67 @@
+@page "/students"
+@inject StudentsApiClient Api
+@inject ObservedStudentsState ObservedState
+
+<PageTitle>Students</PageTitle>
+
+<h1>Students</h1>
+
+@if (isLoading)
+{
+    <LoadingPanel />
+}
+else if (error is not null)
+{
+    <ApiError Message="@error" />
+}
+else
+{
+    <ErrorBoundary>
+        <DataTable Items="students">
+            <HeaderTemplate>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Semester</th>
+                    <th>Actions</th>
+                </tr>
+            </HeaderTemplate>
+            <RowTemplate Context="student">
+                <tr>
+                    <td>@student.IndexNumber</td>
+                    <td><a href="/students/@student.Id">@student.FirstName @student.LastName</a></td>
+                    <td>@student.Email</td>
+                    <td>@student.Semester</td>
+                    <td>
+                        <button class="secondary" @onclick="() => ObservedState.Toggle(student)">
+                            @(ObservedState.IsObserved(student.Id) ? "Unobserve" : "Observe")
+                        </button>
+                    </td>
+                </tr>
+            </RowTemplate>
+        </DataTable>
+    </ErrorBoundary>
+}
+
+@code {
+    private IReadOnlyList<StudentDto> students = [];
+    private bool isLoading = true;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            students = await Api.GetStudentsAsync();
+        }
+        catch (Exception ex)
+        {
+            error = $"Could not load students. Check whether the API is running. Details: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

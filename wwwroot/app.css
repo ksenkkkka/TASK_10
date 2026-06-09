@@ -1,0 +1,172 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #172033;
+  background: #f6f8fb;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #1556b3;
+}
+
+.shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 240px 1fr;
+}
+
+.sidebar {
+  background: #172033;
+  color: white;
+  padding: 24px;
+}
+
+.sidebar h2 {
+  margin: 0 0 24px;
+  font-size: 1.25rem;
+}
+
+nav {
+  display: grid;
+  gap: 8px;
+}
+
+nav a {
+  color: white;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+nav a.active,
+nav a:hover {
+  background: #2d3a55;
+}
+
+main header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px 32px;
+  background: white;
+  border-bottom: 1px solid #dfe5ee;
+}
+
+.content {
+  max-width: 1000px;
+  padding: 32px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border: 1px solid #dfe5ee;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dfe5ee;
+  text-align: left;
+}
+
+.data-table th {
+  background: #edf2f8;
+}
+
+.notice {
+  padding: 14px 16px;
+  background: white;
+  border: 1px solid #dfe5ee;
+  border-radius: 6px;
+}
+
+.error {
+  border-color: #c43c36;
+  color: #8c1f1a;
+}
+
+.success {
+  color: #16733b;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 720px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+  font-weight: 600;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #b9c3d1;
+  border-radius: 6px;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  background: #1556b3;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+  font: inherit;
+}
+
+button.secondary {
+  background: #52627a;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.details,
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.validation-message {
+  color: #8c1f1a;
+  font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    padding: 20px;
+  }
+}

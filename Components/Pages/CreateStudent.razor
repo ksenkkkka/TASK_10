@@ -1,0 +1,73 @@
+@page "/students/create"
+@inject StudentsApiClient Api
+@inject NavigationManager Navigation
+
+<PageTitle>Create student</PageTitle>
+
+<h1>Create student</h1>
+
+@if (error is not null)
+{
+    <ApiError Message="@error" />
+}
+
+<EditForm Model="model" OnValidSubmit="CreateAsync" FormName="create-student">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-grid">
+        <label>
+            Index number
+            <InputText @bind-Value="model.IndexNumber" />
+            <ValidationMessage For="() => model.IndexNumber" />
+        </label>
+        <label>
+            First name
+            <InputText @bind-Value="model.FirstName" />
+            <ValidationMessage For="() => model.FirstName" />
+        </label>
+        <label>
+            Last name
+            <InputText @bind-Value="model.LastName" />
+            <ValidationMessage For="() => model.LastName" />
+        </label>
+        <label>
+            Email
+            <InputText @bind-Value="model.Email" />
+            <ValidationMessage For="() => model.Email" />
+        </label>
+        <label>
+            Semester
+            <InputNumber @bind-Value="model.Semester" />
+            <ValidationMessage For="() => model.Semester" />
+        </label>
+    </div>
+
+    <button type="submit" disabled="@isSaving">Create</button>
+</EditForm>
+
+@code {
+    private readonly CreateStudentModel model = new();
+    private bool isSaving;
+    private string? error;
+
+    private async Task CreateAsync()
+    {
+        error = null;
+        isSaving = true;
+
+        try
+        {
+            var created = await Api.CreateStudentAsync(model);
+            Navigation.NavigateTo($"/students/{created.Id}");
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+        finally
+        {
+            isSaving = false;
+        }
+    }
+}

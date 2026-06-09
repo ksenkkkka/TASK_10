@@ -1,0 +1,196 @@
+@page "/students/{Id:int}"
+@inject StudentsApiClient Api
+@inject ObservedStudentsState ObservedState
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<PageTitle>Student details</PageTitle>
+
+@if (isLoading)
+{
+    <LoadingPanel />
+}
+else if (error is not null)
+{
+    <ApiError Message="@error" />
+}
+else if (student is not null)
+{
+    <ErrorBoundary>
+        <h1>@student.FirstName @student.LastName</h1>
+        <div class="details">
+            <p><strong>Index:</strong> @student.IndexNumber</p>
+            <p><strong>Email:</strong> @student.Email</p>
+            <p><strong>Semester:</strong> @student.Semester</p>
+        </div>
+
+        <div class="actions">
+            <button @onclick="ToggleObserved">@(ObservedState.IsObserved(student.Id) ? "Remove from observed" : "Mark as observed")</button>
+            <button class="secondary" @onclick="CopyEmailAsync">Copy email</button>
+            @if (copied)
+            {
+                <span class="success">Email copied.</span>
+            }
+        </div>
+
+        <h2>Assigned courses</h2>
+        @if (student.Courses.Count == 0)
+        {
+            <p>No courses assigned yet.</p>
+        }
+        else
+        {
+            <DataTable Items="student.Courses">
+                <HeaderTemplate>
+                    <tr>
+                        <th>Name</th>
+                        <th>ECTS</th>
+                        <th>Assigned at</th>
+                    </tr>
+                </HeaderTemplate>
+                <RowTemplate Context="course">
+                    <tr>
+                        <td>@course.Name</td>
+                        <td>@course.Ects</td>
+                        <td>@course.AssignedAt.LocalDateTime.ToString("g")</td>
+                    </tr>
+                </RowTemplate>
+            </DataTable>
+        }
+
+        <h2>Assign course</h2>
+        @if (courseError is not null)
+        {
+            <ApiError Message="@courseError" />
+        }
+        @if (assignError is not null)
+        {
+            <ApiError Message="@assignError" />
+        }
+        <EditForm Model="assignModel" OnValidSubmit="AssignCourseAsync" FormName="assign-course">
+            <DataAnnotationsValidator />
+            <label>
+                Course
+                <InputSelect @bind-Value="assignModel.CourseId">
+                    <option value="0">Select course</option>
+                    @foreach (var course in courses)
+                    {
+                        <option value="@course.Id">@course.Name (@course.Ects ECTS)</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="() => assignModel.CourseId" />
+            </label>
+            <button type="submit" disabled="@isAssigning">Assign</button>
+        </EditForm>
+    </ErrorBoundary>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private StudentDetailsDto? student;
+    private IReadOnlyList<CourseDto> courses = [];
+    private readonly AssignCourseModel assignModel = new();
+    private IJSObjectReference? module;
+    private bool isLoading = true;
+    private bool isAssigning;
+    private bool copied;
+    private string? error;
+    private string? courseError;
+    private string? assignError;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            courses = await Api.GetCoursesAsync();
+        }
+        catch (Exception ex)
+        {
+            courseError = $"Could not load courses. Check whether the API is running. Details: {ex.Message}";
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isLoading = true;
+        error = null;
+        copied = false;
+
+        try
+        {
+            student = await Api.GetStudentAsync(Id);
+            if (student is null)
+            {
+                error = "Student was not found.";
+            }
+        }
+        catch (Exception ex)
+        {
+            error = $"Could not load student details. Details: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "/js/task10.js");
+        }
+    }
+
+    private void ToggleObserved()
+    {
+        if (student is null)
+        {
+            return;
+        }
+
+        ObservedState.Toggle(new StudentDto(student.Id, student.IndexNumber, student.FirstName, student.LastName, student.Email, student.Semester));
+    }
+
+    private async Task CopyEmailAsync()
+    {
+        if (student is null || module is null)
+        {
+            return;
+        }
+
+        await module.InvokeVoidAsync("copyText", student.Email);
+        copied = true;
+    }
+
+    private async Task AssignCourseAsync()
+    {
+        assignError = null;
+        isAssigning = true;
+
+        try
+        {
+            await Api.AssignCourseAsync(Id, assignModel.CourseId);
+            student = await Api.GetStudentAsync(Id);
+            assignModel.CourseId = 0;
+        }
+        catch (Exception ex)
+        {
+            assignError = ex.Message;
+        }
+        finally
+        {
+            isAssigning = false;
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+}

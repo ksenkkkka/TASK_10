@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "ohAFrbo8yMcqBbf2auLuQp9ZWSnhPzthln4+/hMn9Uk=",
+  "Source": "Task_10.Web",
+  "BasePath": "_content/Task_10.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Task_10.Web\\wwwroot",
+      "Source": "Task_10.Web",
+      "ContentRoot": "C:\\Users\\k.shahnovich\\Documents\\Codex\\2026-06-02\\files-mentioned-by-the-user-pasted\\outputs\\Task_10.Web\\wwwroot\\",
+      "BasePath": "_content/Task_10.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\k.shahnovich\\Documents\\Codex\\2026-06-02\\files-mentioned-by-the-user-pasted\\outputs\\Task_10.Web\\wwwroot\\app.css",
+      "SourceId": "Task_10.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\k.shahnovich\\Documents\\Codex\\2026-06-02\\files-mentioned-by-the-user-pasted\\outputs\\Task_10.Web\\wwwroot\\",
+      "BasePath": "_content/Task_10.Web",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\k.shahnovich\\Documents\\Codex\\2026-06-02\\files-mentioned-by-the-user-pasted\\outputs\\Task_10.Web\\wwwroot\\js\\task10.js",
+      "SourceId": "Task_10.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\k.shahnovich\\Documents\\Codex\\2026-06-02\\files-mentioned-by-the-user-pasted\\outputs\\Task_10.Web\\wwwroot\\",
+      "BasePath": "_content/Task_10.Web",
+      "RelativePath": "js/task10.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\task10.js"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Task_10.Web
+build_property.RootNamespace = Task_10.Web
+build_property.ProjectDir = C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\k.shahnovich\Documents\Codex\2026-06-02\files-mentioned-by-the-user-pasted\outputs\Task_10.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Pages/CreateStudent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVTdHVkZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Pages/ObservedStudents.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPYnNlcnZlZFN0dWRlbnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Pages/StudentDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Pages/Students.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Shared/ApiError.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQXBpRXJyb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Shared/DataTable.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcRGF0YVRhYmxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/Shared/LoadingPanel.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcTG9hZGluZ1BhbmVsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/k.shahnovich/Documents/Codex/2026-06-02/files-mentioned-by-the-user-pasted/outputs/Task_10.Web/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
